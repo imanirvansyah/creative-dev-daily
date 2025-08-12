@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --border: 1px solid #5d313617;
+  --soft: #F9ECDF;
+  --dark: #5D3136;
+  --dark-disabled: #5d313625;
+  --dark-active: #5d313640;
+}
+
+body {
+  background-color: var(--soft);
+  padding: 0.5em 1em;
+  color: var(--dark);
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+}
+
+p,
+a,
+span,
+button {
+  font-weight: 300;
+  font-size: .8rem;
+  letter-spacing: -14%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+
+a.primary {
+  padding: 0 1em;
+  background-color: var(--dark-disabled);
+  border-radius: 3px;
+}
+
+a.primary:hover {
+  background-color: var(--dark-active);
+}
+
+a.secondary {
+  padding: 0 1em;
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+}
+
+.badge {
+  background-color: var(--dark);
+  color: var(--soft);
+  padding: 0 1em;
+  border-radius: 3px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0;
+}
+
+.navbar div {
+  display: flex;
+  gap: .5em;
+}
+
+.navbar #updates {
+  display: none;
+}
+
+.noise {
+  background-image: url('noise.svg');
+  background-repeat: repeat;
+  background-size: auto;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  opacity: .5;
+  position: fixed;
+  z-index: -1;
+}
+
+
+main {
+  border: var(--border);
+  padding: 1em;
+}
+
+.hero-title {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.subtitles-wrapper {
+  padding-top: 1.5em;
+  border-top: var(--border);
+  border-right: var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.subtitles-wrapper>div {
+  flex: 1;
+  min-width: 50%;
+  padding: 1em 1em 0 0;
+}
+
+.chapters-wrapper {
+  padding-top: 1.5em;
+  width: 100%;
+  text-align: center;
+}
+
+.chapters-wrapper .chapters {
+  margin-top: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: .5em;
+}
+
+.chapters-wrapper .chapters div {
+  padding: 20px;
+  flex: 1;
+  min-height: 120px;
+  border-radius: 3px;
+  border: var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+}
+
+
+@media only screen and (min-width: 800px) {
+
+  p,
+  a,
+  span,
+  button {
+    font-size: 1rem;
+  }
+
+  .navbar div {
+    gap: 3em;
+    margin-right: 50px;
+  }
+
+  .navbar #updates {
+    display: inline;
+
+  }
+
+  .subtitles-wrapper>div {
+    min-width: 0;
+  }
+
+  .chapters-wrapper .chapters div {
+    min-height: 200px;
+  }
+
+}
+
+@media only screen and (min-width: 1300px) {
+
+  p,
+  a,
+  span,
+  button {
+    font-size: 1.2rem;
+  }
+
+  .chapters-wrapper {
+    margin-top: 3em;
+  }
+}
