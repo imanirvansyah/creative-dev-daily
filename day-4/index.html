@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <svg width="200" height="200">
+    <!-- Triangle -->
+    <polygon points="50,150 150,150 100,50" fill="lightblue" stroke="black" stroke-width="2" />
+  </svg>
+
+
+  <svg width="200" height="200">
+    <polygon id="triangle" points="50,150 150,150 100,50" fill="lightblue" stroke="black" stroke-width="2" />
+  </svg>
+  <script>
+    const polygon = document.getElementById("triangle");
+
+    // Change the points dynamically
+    polygon.setAttribute("points", "60,150 140,150 100,40");
+
+    // Change color
+    polygon.setAttribute("fill", "pink");
+  </script>
+
+  <svg width="200" height="200">
+    <polygon id="triangle2" points="50,150 150,150 100,50" fill="lightblue" stroke="black" stroke-width="2" />
+  </svg>
+
+  <script>
+    const polygon2 = document.getElementById("triangle2");
+
+    let offset = 0;
+    setInterval(() => {
+      offset = (offset + 1) % 20;
+      polygon2.setAttribute("points", `${50 + offset},150 ${150 - offset},150 100,${50 + offset}`);
+    }, 50);
+  </script>
+
+  <!-- group of svgs  -->
+  <svg width="200" height="200" viewBox="0 0 200 200">
+    <g stroke="black" stroke-width="2" fill="skyblue">
+      <circle cx="50" cy="50" r="30" />
+      <rect x="100" y="30" width="50" height="50" />
+    </g>
+  </svg>
+
+  <!-- Group with transform -->
+  <svg width="200" height="200" viewBox="0 0 200 200">
+    <g transform="translate(50,50) rotate(45)">
+      <rect x="0" y="0" width="50" height="50" fill="tomato" />
+      <circle cx="100" cy="0" r="25" fill="gold" />
+    </g>
+  </svg>
+
+  <!-- manipulate svg group  -->
+  <svg id="mysvg" width="200" height="200" viewBox="0 0 200 200">
+    <g id="group1" fill="purple">
+      <circle cx="50" cy="50" r="30" />
+      <rect x="100" y="30" width="50" height="50" />
+    </g>
+  </svg>
+
+  <script>
+    const group = document.getElementById("group1");
+
+    // Change color
+    group.setAttribute("fill", "orange");
+
+    // Move group
+    group.setAttribute("transform", "translate(20, 40)");
+  </script>
+
+  <svg width="200" height="100" viewBox="0 0 200 100">
+    <path d="M10 10 L10 90 L20 90 L20 50 L40 50 L40 90 L50 90 L50 10 L40 10 L40 40 L20 40 L20 10 Z" fill="black" />
+    <path d="M70 10 L70 90 L120 90 L120 80 L80 80 L80 60 L110 60 L110 50 L80 50 L80 20 L120 20 L120 10 Z"
+      fill="black" />
+  </svg>
+
+
+  <script>
+    const letters = document.querySelectorAll('path');
+    letters.forEach((letter, i) => {
+      letter.addEventListener('mouseenter', () => {
+        letter.style.fill = i % 2 ? 'red' : 'blue';
+      });
+      letter.addEventListener('mouseleave', () => {
+        letter.style.fill = 'black';
+      });
+    });
+  </script>
+
+
+
+
+</body>
+
+</html>
